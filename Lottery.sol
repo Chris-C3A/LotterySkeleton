@@ -69,7 +69,7 @@ contract Lottery {
 
         // set winner equal to the random index in players
 
-        // transfer the lottery pot to the winner
+        // transfer the lottery pot to the winner using the call method
 
     }
     

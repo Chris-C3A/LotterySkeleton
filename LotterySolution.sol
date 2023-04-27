@@ -85,7 +85,8 @@ contract Lottery {
         winner = players[index];
 
         // transfer the lottery pot to the winner
-        winner.transfer(getLotteryPot());
+        (bool sent,) = winner.call{value: getLotteryPot()}("");
+        require(sent, "Failed to send Ether");
 
         // reset players and number of players
     }
