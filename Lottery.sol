@@ -11,6 +11,8 @@ contract Lottery {
 
     // duration of lottery
 
+    // deadline
+
     // isLotteryOpen
 
     // constructor function
@@ -20,7 +22,7 @@ contract Lottery {
         
         // initialize minimum bet
         
-        // initialize deadline
+        // initialize duration
         
         // initialize isLotteryOpen variable
         
@@ -45,6 +47,8 @@ contract Lottery {
     function openLottery() public {
         require(, "Only the owner can open the lottery.");
         require(, "Lottery is already open.");
+
+        // set deadline to current time + duration
 
         // set lottery to open
     }
