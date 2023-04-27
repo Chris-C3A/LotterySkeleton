@@ -3,24 +3,35 @@ pragma solidity ^0.8.0;
 
 contract Lottery {
     // owner of contract
+
     // array of payable players
     // winner address
-    // number of players
-    // minimum bet
-    // deadline
-    // isLotteryClosed
 
-    // constructor
-    constructor(uint _minimumBet, uint _durationHours) {
+    // minimum bet
+
+    // duration of lottery
+
+    // isLotteryOpen
+
+    // constructor function
+    // takes duration as parameter
+    constructor() {
         // assign the sender as owner of the contract
         
         // initialize minimum bet
         
         // initialize deadline
         
-        // initialize lotteryClosed variable
+        // initialize isLotteryOpen variable
         
     }
+
+    // receive eth function
+    receive() external payable {
+        // all Ether sent directly to this contract's address will run this function
+
+        // call enterLottery() function
+   }
     
     // enter function
     function enter() public payable {
@@ -28,19 +39,21 @@ contract Lottery {
         require(, "Lottery is already closed.");
         require(, "Lottery is already closed.");
 
-        // add sender to array of players
-    
-        // increase number of players
+        // add sender to array of players as payable
     }
 
     function openLottery() public {
         require(, "Only the owner can open the lottery.");
         require(, "Lottery is already open.");
+
+        // set lottery to open
     }
     
     function closeLottery() public {
         require(, "Only the owner can close the lottery.");
         require(, "Lottery is already closed.");
+
+        // set lottery to closed
     }
     
     function selectWinner() public {
@@ -48,15 +61,11 @@ contract Lottery {
         require(, "Lottery is not closed yet.");
         require(, "No players participated in the lottery.");
         
-        // select random player to win
+        // get random index of players array
 
-        // transfer the lottery pot to that player's address
+        // set winner equal to the random index in players
 
-
-        // reset the lottery
-        // reset players array
-        // reset number of players
-        // reset lotteryClosed variable
+        // transfer the lottery pot to the winner
 
     }
     
@@ -66,10 +75,15 @@ contract Lottery {
     }
     
     // getters (gets players)
+    // get players
     function getPlayers() public view returns (address payable[] memory) {
-        
     }
 
+    // get winner of the lottery
     function getWinner() public view returns (address payable) {
+    }
+
+    // get lottery pot (balance of the contract)
+    function getLotteryPot() public view returns (uint) {
     }
 }
